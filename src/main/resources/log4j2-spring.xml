@@ -1,0 +1,69 @@
+<!DOCTYPE xml>
+<Configuration status="ERROR">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%d] %-5p: %c - %m%n" />
+		</Console>
+		<RollingRandomAccessFile name="file"
+			fileName="${spring:log.file.path}/log.log"
+			filePattern="${spring:log.file.path}/log.%d{yyyy-MM-dd}.log">
+			<PatternLayout charset="UTF-8">
+				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+		</RollingRandomAccessFile>
+		<RollingRandomAccessFile name="error"
+			fileName="${spring:log.file.path}/error.log"
+			filePattern="${spring:log.file.path}/error.%d{yyyy-MM-dd}.log">
+			<PatternLayout charset="UTF-8">
+				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+		</RollingRandomAccessFile>
+		<RollingRandomAccessFile name="info"
+			fileName="${spring:log.file.path}/info.log"
+			filePattern="${spring:log.file.path}/info.%d{yyyy-MM-dd}.log">
+			<PatternLayout charset="UTF-8">
+				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+			<LevelRangeFilter minLevel="warn" maxLevel="info" />
+		</RollingRandomAccessFile>
+		<RollingRandomAccessFile name="warn"
+			fileName="${spring:log.file.path}/warn.log"
+			filePattern="${spring:log.file.path}/warn.%d{yyyy-MM-dd}.log">
+			<PatternLayout charset="UTF-8">
+				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" />
+			</Policies>
+			<LevelRangeFilter minLevel="warn" maxLevel="warn" />
+		</RollingRandomAccessFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="yh.ban.project" level="debug" additivity="false">
+			<AppenderRef ref="console" level="debug" />
+			<AppenderRef ref="file" level="debug" />
+			<AppenderRef ref="info" level="info" />
+			<AppenderRef ref="warn" level="warn" />
+			<AppenderRef ref="error" level="error" />
+		</Logger>
+		<Logger name="yh.ban.project.ServletInitializer" level="debug"
+			additivity="false">
+			<AppenderRef ref="console" level="debug" />
+			<AppenderRef ref="file" level="debug" />
+		</Logger>
+		<Root level="error">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+			<AppenderRef ref="error" />
+		</Root>
+	</Loggers>
+</Configuration>

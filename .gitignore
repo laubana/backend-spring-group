@@ -1,0 +1,11 @@
+.DS_Store
+*.log
+*.txt
+
+.classpath
+.factorypath
+.project
+application.properties
+/target/
+/.settings/
+/src/main/resources/resources/element/**/*.webp
