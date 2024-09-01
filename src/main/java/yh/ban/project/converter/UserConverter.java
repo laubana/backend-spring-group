@@ -8,6 +8,7 @@ import yh.ban.project.model.User;
 public class UserConverter implements Converter<ObjectId, User> {
 	@Override
 	public User convert(ObjectId objectId) {
+		System.out.println("user converter");
 		User user = new User();
 		user.set_id(objectId.toString());
 

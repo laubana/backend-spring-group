@@ -31,8 +31,6 @@ public class AuthConfig {
 
 		httpSecurity.csrf(csrf -> csrf.disable());
 
-		httpSecurity.authorizeHttpRequests(authority -> authority.requestMatchers("/auth/**").permitAll());
-
 		httpSecurity.authorizeHttpRequests(authority -> authority.anyRequest().permitAll());
 
 		httpSecurity.addFilterBefore(new AuthFilter(), UsernamePasswordAuthenticationFilter.class);

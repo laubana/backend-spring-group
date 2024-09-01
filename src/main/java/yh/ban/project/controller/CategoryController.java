@@ -30,19 +30,6 @@ public class CategoryController {
 	@Autowired
 	MongoTemplate mongoTemplate;
 
-	@GetMapping("categorys")
-	public ResponseEntity<Response> getAllCategories() {
-		try {
-			List<Category> categories = mongoTemplate.findAll(Category.class);
-
-			return ResponseEntity.ok().body(new Response("", categories));
-		} catch (Exception exception) {
-			exception.printStackTrace();
-
-			return ResponseEntity.internalServerError().body(new Response("Server Error"));
-		}
-	}
-
 	@PostMapping("/category")
 	public ResponseEntity<Response> addCategory(@RequestBody CategoryDto body) {
 		try {
@@ -59,7 +46,20 @@ public class CategoryController {
 
 			Category newCategory = mongoTemplate.insert(CategoryMapper.INSTANCE.categoryDtoToCategory(body));
 
-			return ResponseEntity.created(null).body(new Response("Category created successfully", newCategory));
+			return ResponseEntity.created(null).body(new Response("Category created successfully.", newCategory));
+		} catch (Exception exception) {
+			exception.printStackTrace();
+
+			return ResponseEntity.internalServerError().body(new Response("Server Error"));
+		}
+	}
+
+	@GetMapping("/categorys")
+	public ResponseEntity<Response> getAllCategories() {
+		try {
+			List<Category> categorys = mongoTemplate.findAll(Category.class);
+
+			return ResponseEntity.ok().body(new Response("", categorys));
 		} catch (Exception exception) {
 			exception.printStackTrace();
 

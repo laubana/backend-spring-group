@@ -1,12 +1,37 @@
 {"properties": [
   {
-    "name": "stripe.secret",
+    "name": "backend-url",
     "type": "java.lang.String",
-    "description": "A description for 'stripe.secret'"
+    "description": "A description for 'backend-url'"
   },
   {
-    "name": "log.file.path",
+    "name": "front-url",
+    "type": "java.lang.String",
+    "description": "A description for 'front-url'"
+  },
+  {
+    "name": "google-client-id",
+    "type": "java.lang.String",
+    "description": "A description for 'google-client-id'"
+  },
+  {
+    "name": "google-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'google-secret'"
+  },
+  {
+    "name": "log-file-path",
     "type": "java.lang.String",
     "description": "A description for 'log.file.path'"
+  },
+  {
+    "name": "secret",
+    "type": "java.lang.String",
+    "description": "A description for 'secret'"
+  },
+  {
+    "name": "stripe-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'stripe.secret'"
   }
 ]}

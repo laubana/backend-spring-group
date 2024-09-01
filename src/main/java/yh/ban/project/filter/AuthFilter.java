@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import io.jsonwebtoken.Claims;
@@ -13,7 +14,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import yh.ban.project.factories.SecretKeyFactory;
+import yh.ban.project.factory.SecretKeyFactory;
 import yh.ban.project.helper.StringHelper;
 
 public class AuthFilter extends OncePerRequestFilter {
@@ -22,8 +23,15 @@ public class AuthFilter extends OncePerRequestFilter {
 	@Override
 	protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
 			FilterChain filterChain) throws IOException, ServletException {
-		String path = (String) httpServletRequest.getServletPath();
-		if (path.startsWith("/auth")) {
+		String method = httpServletRequest.getMethod();
+		String path = httpServletRequest.getServletPath();
+		;
+		if (path.startsWith("/auth") || (method.equals(HttpMethod.GET.name()) && path.startsWith("/api/categorys"))
+				|| (method.equals(HttpMethod.GET.name()) && path.startsWith("/api/comments"))
+				|| (method.equals(HttpMethod.GET.name()) && path.startsWith("/api/event"))
+				|| (method.equals(HttpMethod.GET.name()) && path.startsWith("/api/events"))
+				|| (method.equals(HttpMethod.GET.name()) && path.startsWith("/api/images"))
+				|| (method.equals(HttpMethod.GET.name()) && path.startsWith("/api/registration"))) {
 			filterChain.doFilter(httpServletRequest, httpServletResponse);
 
 			return;
@@ -45,15 +53,17 @@ public class AuthFilter extends OncePerRequestFilter {
 			if (jws.getPayload().get("id") == null
 					|| StringHelper.isNullOrBlank(jws.getPayload().get("id").toString())) {
 				httpServletResponse.setStatus(401);
+
+				return;
 			}
 
 			httpServletRequest.setAttribute("id", jws.getPayload().get("id").toString());
 
 			filterChain.doFilter(httpServletRequest, httpServletResponse);
 		} catch (Exception exception) {
-			httpServletResponse.setStatus(401);
+			exception.printStackTrace();
 
-			filterChain.doFilter(httpServletRequest, httpServletResponse);
+			httpServletResponse.setStatus(500);
 		}
 	}
 }

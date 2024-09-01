@@ -2,24 +2,19 @@ package yh.ban.project.dto;
 
 import java.time.Instant;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
-public class EventDto {
+public class RegistrationDto {
 	private String _id;
-	private String categoryId;
+	private String eventId;
 	private String userId;
-	private String thumbnailUrl;
-	private String imageUrl;
-	private String name;
-	private String address;
-	private String latitude;
-	private String longitude;
-	private String description;
 	private Instant createdAt;
 	private Instant updatedAt;
 }

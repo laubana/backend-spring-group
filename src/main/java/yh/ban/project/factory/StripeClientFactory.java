@@ -1,4 +1,4 @@
-package yh.ban.project.factories;
+package yh.ban.project.factory;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ public class StripeClientFactory {
 	private StripeClientFactory() {
 	}
 
-	@Value("${stripe.secret}")
+	@Value("${stripe-secret}")
 	public void setStripeSecret(String stripeSecret) {
 		STRIPE_SECRET = stripeSecret;
 	}

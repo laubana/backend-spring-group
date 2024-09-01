@@ -11,22 +11,18 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Document(collection = "user")
+@Document(collection = "transaction")
 @Getter
 @Setter
 @ToString
-public class User {
+public class Transaction {
 	@Id
 	private String _id;
-	private String email;
-	private String password;
-	private String imageUrl;
-	private String name;
-	private String address;
-	private Double latitude;
-	private Double longitude;
+	private Long amount;
+	private String chargeId;
 	private String description;
-	private String customerId;
+	private String receiptUrl;
+	private Object user;
 	@CreatedDate
 	private Instant createdAt;
 	@LastModifiedDate

@@ -6,27 +6,27 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
 
-import yh.ban.project.dto.EventDto;
+import yh.ban.project.dto.RegistrationDto;
 import yh.ban.project.helper.StringHelper;
-import yh.ban.project.model.Event;
+import yh.ban.project.model.Registration;
 
 @Mapper(componentModel = "spring")
-public interface EventMapper {
-	EventMapper INSTANCE = Mappers.getMapper(EventMapper.class);
+public interface RegistrationMapper {
+	RegistrationMapper INSTANCE = Mappers.getMapper(RegistrationMapper.class);
 
-	@Mapping(source = "categoryId", target = "category", qualifiedByName = "categoryIdToCategory")
+	@Mapping(source = "eventId", target = "event", qualifiedByName = "eventIdToEvent")
 	@Mapping(source = "userId", target = "user", qualifiedByName = "userIdToUser")
-	Event eventDtoToEvent(EventDto eventDto);
+	Registration registrationDtoToRegistration(RegistrationDto registrationDto);
 
-	@Named("categoryIdToCategory")
-	default ObjectId categoryIdToCategory(String categoryId) {
-		if (StringHelper.isNullOrBlank(categoryId)) {
+	@Named("eventIdToEvent")
+	default ObjectId eventIdToEvent(String eventId) {
+		if (StringHelper.isNullOrBlank(eventId)) {
 			return null;
 		}
 
-		ObjectId category = new ObjectId(categoryId);
+		ObjectId event = new ObjectId(eventId);
 
-		return category;
+		return event;
 	}
 
 	@Named("userIdToUser")
