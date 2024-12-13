@@ -29,7 +29,7 @@ import yh.ban.project.type.Response;
 @RestController
 @RequestMapping("/api")
 public class EventController {
-	private static final Logger logger = LogManager.getLogger(CategoryController.class);
+	private static final Logger logger = LogManager.getLogger(EventController.class);
 
 	@Autowired
 	MongoTemplate mongoTemplate;

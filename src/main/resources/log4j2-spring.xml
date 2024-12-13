@@ -5,8 +5,8 @@
 			<PatternLayout pattern="[%d] %-5p: %c - %m%n" />
 		</Console>
 		<RollingRandomAccessFile name="file"
-			fileName="${spring:log.file.path}/log.log"
-			filePattern="${spring:log.file.path}/log.%d{yyyy-MM-dd}.log">
+			fileName="${spring:log-file-path}/log.log"
+			filePattern="${spring:log-file-path}/log.%d{yyyy-MM-dd}.log">
 			<PatternLayout charset="UTF-8">
 				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
 			</PatternLayout>
@@ -15,8 +15,8 @@
 			</Policies>
 		</RollingRandomAccessFile>
 		<RollingRandomAccessFile name="error"
-			fileName="${spring:log.file.path}/error.log"
-			filePattern="${spring:log.file.path}/error.%d{yyyy-MM-dd}.log">
+			fileName="${spring:log-file-path}/error.log"
+			filePattern="${spring:log-file-path}/error.%d{yyyy-MM-dd}.log">
 			<PatternLayout charset="UTF-8">
 				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
 			</PatternLayout>
@@ -25,8 +25,8 @@
 			</Policies>
 		</RollingRandomAccessFile>
 		<RollingRandomAccessFile name="info"
-			fileName="${spring:log.file.path}/info.log"
-			filePattern="${spring:log.file.path}/info.%d{yyyy-MM-dd}.log">
+			fileName="${spring:log-file-path}/info.log"
+			filePattern="${spring:log-file-path}/info.%d{yyyy-MM-dd}.log">
 			<PatternLayout charset="UTF-8">
 				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
 			</PatternLayout>
@@ -36,8 +36,8 @@
 			<LevelRangeFilter minLevel="warn" maxLevel="info" />
 		</RollingRandomAccessFile>
 		<RollingRandomAccessFile name="warn"
-			fileName="${spring:log.file.path}/warn.log"
-			filePattern="${spring:log.file.path}/warn.%d{yyyy-MM-dd}.log">
+			fileName="${spring:log-file-path}/warn.log"
+			filePattern="${spring:log-file-path}/warn.%d{yyyy-MM-dd}.log">
 			<PatternLayout charset="UTF-8">
 				<Pattern>[%d] %-5p: %c - %m%n</Pattern>
 			</PatternLayout>
