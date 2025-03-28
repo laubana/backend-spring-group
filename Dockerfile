@@ -5,7 +5,7 @@ WORKDIR /app
 COPY ./pom.xml /app
 COPY ./src /app/src
 
-RUN mvn dependency:go-offline
+#RUN mvn dependency:go-offline
 
 RUN mvn clean package -DskipTests
 
