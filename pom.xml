@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>yh.ban</groupId>
-	<artifactId>backend-spring-event</artifactId>
+	<artifactId>backend-spring-group</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>backend-spring-event</name>
