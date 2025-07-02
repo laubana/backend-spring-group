@@ -7,10 +7,10 @@
 *.txt
 
 # sts 
-.classpath/
-.factorypath/
-.project/
-.settings/
+.classpath
+.factorypath
+.project
+.settings
 target/
 
 # envs
