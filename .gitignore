@@ -1,10 +1,17 @@
+# macOS
 .DS_Store
+
+# logs
 *.log
+
 *.txt
 
-/.classpath
-/.factorypath
-/.project
-/target
-/.settings
-/src/main/resources/application.properties
+# sts 
+.classpath/
+.factorypath/
+.project/
+.settings/
+target/
+
+# envs
+src/main/resources/application.properties
